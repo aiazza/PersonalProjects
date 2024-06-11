@@ -8,14 +8,22 @@ class User:
     def __str__(self) -> str:
         return f"First name : {self.firstname}\n Lastname : {self.lastname}"
 
+
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html",title="Title passed from view to template",text="Text passed from view to template")
 
+
 @app.route('/user')
 def user():
     return render_template("index.html",title="Title passed from view to template",text=str(User("Adel","Iazzag")))
+
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
